@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#080b16" />
+    <title>Neon Flux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <canvas id="game" aria-label="Neon Flux game board"></canvas>
+
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark"></span><span>NEON FLUX</span></div>
+        <div class="round-label">RUN <span id="round">01</span></div>
+        <button class="sound-button" id="soundToggle" type="button" aria-label="Toggle sound">SOUND <span id="soundState">ON</span></button>
+      </header>
+
+      <section class="hud" aria-label="Game status">
+        <div class="stat-block score-block">
+          <span class="stat-label">SCORE</span>
+          <strong id="score">000000</strong>
+        </div>
+        <div class="stat-block combo-block">
+          <span class="stat-label">COMBO</span>
+          <strong><span id="combo">x1</span><span class="combo-flare" id="comboFlare"></span></strong>
+        </div>
+        <div class="meter-block">
+          <div class="meter-head"><span>OVERDRIVE</span><span id="overdriveText">READY IN 100</span></div>
+          <div class="meter"><span id="overdriveBar"></span></div>
+        </div>
+        <div class="stat-block time-block">
+          <span class="stat-label">TIME</span>
+          <strong id="time">45.0</strong>
+        </div>
+      </section>
+
+      <div class="tip" id="tip">ARROWS / WASD TO MOVE <i></i> SPACE TO DASH <i></i> E TO OVERDRIVE</div>
+
+      <div class="touch-controls" aria-label="Touch controls">
+        <button class="touch-pad" data-key="ArrowLeft" aria-label="Move left">&#8592;</button>
+        <div class="touch-stack"><button class="touch-pad" data-key="ArrowUp" aria-label="Move up">&#8593;</button><button class="touch-pad" data-key="ArrowDown" aria-label="Move down">&#8595;</button></div>
+        <button class="touch-pad" data-key="ArrowRight" aria-label="Move right">&#8594;</button>
+        <button class="dash-pad" id="dashButton" aria-label="Dash">DASH</button>
+      </div>
+
+      <section class="overlay active" id="startOverlay">
+        <div class="eyebrow"><span></span> ARCADE PROTOCOL 09</div>
+        <h1>NEON<br /><em>FLUX</em></h1>
+        <p>Catch the pulse. Break the loop.</p>
+        <button class="primary-button" id="startButton" type="button"><span>START RUN</span><b>ENTER</b></button>
+        <div class="microcopy">45 SECONDS <span>·</span> 3 LIVES <span>·</span> NO MERCY</div>
+      </section>
+
+      <section class="overlay" id="gameOverOverlay">
+        <div class="eyebrow"><span></span> SIGNAL LOST</div>
+        <h2>RUN<br /><em>COMPLETE</em></h2>
+        <div class="final-score"><span>FINAL SCORE</span><strong id="finalScore">000000</strong></div>
+        <div class="result-row"><span>BEST COMBO</span><strong id="bestCombo">x1</strong><span>PEAK WAVE</span><strong id="peakWave">01</strong></div>
+        <button class="primary-button" id="restartButton" type="button"><span>RUN IT BACK</span><b>ENTER</b></button>
+        <div class="microcopy">PRESS R ANYTIME TO RESET</div>
+      </section>
+
+      <div class="toast" id="toast" role="status"></div>
+      <div class="corner corner-tl"></div><div class="corner corner-tr"></div><div class="corner corner-bl"></div><div class="corner corner-br"></div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
